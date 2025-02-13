@@ -60,7 +60,7 @@ async function convertMeshToMz3() {
   //try {
   const data = await fs.readFile(inputFile)
   const startTime = performance.now()
-  const { positions, indices, colors } = await parseDraco(data.buffer, true)
+  const { positions, indices, colors } = await parseDraco(data.buffer)
   const mz3 = makeMz3(positions, indices, colors)
   await fs.writeFile(outputFile, Buffer.from(mz3.buffer))
   console.log(`Converted to ${outputFile} in ${Math.round(performance.now() - startTime)}ms`)

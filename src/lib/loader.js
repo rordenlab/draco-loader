@@ -3,10 +3,9 @@ import draco3d from 'draco3d'
 /**
  * Parses a Draco-compressed buffer and extracts vertex positions and triangle indices.
  * @param {ArrayBuffer} buffer - The Draco-encoded mesh data.
- * @param {boolean} normalizeColors - Whether to normalize colors from 0-255 to 0-1.
  * @returns {Promise<{ positions: Float32Array, indices: Uint32Array, colors: Uint8Array | null }>}
  */
-export async function parseDraco(buffer, normalizeColors = true) {
+export async function parseDraco(buffer) {
   try {
     const draco = await draco3d.createDecoderModule() // Load the Draco decoder
     const decoder = new draco.Decoder()
